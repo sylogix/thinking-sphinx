@@ -13,7 +13,7 @@ module ThinkingSphinx
   module ActiveRecord
     def self.included(base)
       base.class_eval do
-        class_inheritable_array :sphinx_indexes, :sphinx_facets
+        class_attribute :sphinx_indexes, :sphinx_facets
         
         extend ThinkingSphinx::ActiveRecord::ClassMethods
         
