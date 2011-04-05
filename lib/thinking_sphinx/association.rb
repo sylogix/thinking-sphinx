@@ -58,8 +58,8 @@ module ThinkingSphinx
     def join_to(base_join)
       parent.join_to(base_join) if parent && parent.join.nil?
       
-      @join ||= ::ActiveRecord::Associations::ClassMethods::JoinDependency::JoinAssociation.new(
-        @reflection, base_join, parent ? parent.join : base_join.joins.first
+      @join ||= ::ActiveRecord::Associations::JoinDependency::JoinAssociation.new(
+        @reflection, base_join, parent ? parent.join : base_join.join_parts.first
       )
     end
     

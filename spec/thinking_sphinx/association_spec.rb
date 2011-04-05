@@ -84,7 +84,7 @@ describe ThinkingSphinx::Association do
       @parent = ThinkingSphinx::Association.new(nil, nil)
       @parent.stub!(:join_to => true, :join => nil)
       @base_join = stub('base join', :joins => [:a, :b, :c])
-       ::ActiveRecord::Associations::ClassMethods::JoinDependency::JoinAssociation.stub!(:new => @join)
+       ::ActiveRecord::Associations::JoinDependency::JoinAssociation.stub!(:new => @join)
     end
     
     it "should call the parent's join_to if parent has no join" do

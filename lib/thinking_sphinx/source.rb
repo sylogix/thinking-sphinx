@@ -22,9 +22,9 @@ module ThinkingSphinx
       @associations = {}
       @database_configuration = @model.connection.
         instance_variable_get(:@config).clone
-      
-      @base = ::ActiveRecord::Associations::ClassMethods::JoinDependency.new(
-        @model, [], nil
+        
+      @base = ::ActiveRecord::Associations::JoinDependency.new(
+        @model, [], []
       )
       
       unless @model.descends_from_active_record?
